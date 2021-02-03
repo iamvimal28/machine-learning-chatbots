@@ -8,6 +8,8 @@ model = load_model('chatbot_model.h5')
 import json
 import random
 
+import translator_service
+
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
@@ -65,10 +67,15 @@ def send():
         ChatBox.config(state=NORMAL)
         ChatBox.insert(END, "You: " + msg + '\n\n')
         ChatBox.config(foreground="#446665", font=("Verdana", 12 ))
-        ints = predict_class(msg)
-        res = getResponse(ints, intents)
+        # Detecting and translating source language to english
+        src_lang = translator_service.detect_language(msg)
+        translated_to_english = translator_service.translate(msg,src_lang,'en')
 
-        ChatBox.insert(END, "Bot: " + res + '\n\n')
+        ints = predict_class(translated_to_english)
+        res = getResponse(ints, intents)
+        # Translating response to destination language
+        dest_res = translator_service.translate(res,'en',src_lang)
+        ChatBox.insert(END, "Bot: " + dest_res + '\n\n')
         ChatBox.config(state=DISABLED)
         ChatBox.yview(END)
 
