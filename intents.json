@@ -21,52 +21,37 @@
     },
     {"tag": "options",
      "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-     "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
+     "responses": ["I can guide you through our products like Home Products, Clothing, Kitchen appliances, Consumer electronics, Daily essentials etc."],
      "context": [""]
     },
-    {"tag": "adverse_drug",
-     "patterns": ["How to check Adverse drug reaction?", "Open adverse drugs module", "Give me a list of drugs causing adverse behavior", "List all drugs suitable for patient with adverse reaction", "Which drugs dont have adverse reaction?" ],
-     "responses": ["Navigating to Adverse drug reaction module"],
+    {"tag": "product_catalog",
+     "patterns": ["How to see Products?", "Get list of Products", "your products please", "I want to see you products and services", "What to buy?", "Buying Options", "Suggest products", "Product suggestions" ],
+     "responses": ["Navigating to available Products and Services"],
      "context": [""]
     },
-    {"tag": "blood_pressure",
-     "patterns": ["Open blood pressure module", "Task related to blood pressure", "Blood pressure data entry", "I want to log blood pressure results", "Blood pressure data management" ],
-     "responses": ["Navigating to Blood Pressure module"],
+    {"tag": "home_products",
+     "patterns": ["Open Home products", "Show home products and appliances", "Home items", "Home essentials", "Get home products" ],
+     "responses": ["Navigating to Home products"],
      "context": [""]
     },
-    {"tag": "blood_pressure_search",
-     "patterns": ["I want to search for blood pressure result history", "Blood pressure for patient", "Load patient blood pressure result", "Show blood pressure results for patient", "Find blood pressure results by ID" ],
-     "responses": ["Please provide Patient ID", "Patient ID?"],
-     "context": ["search_blood_pressure_by_patient_id"]
+    {"tag": "clothing",
+     "patterns": ["Go to clothing section", "Show clothing items", "Open clothing", "Clothing please", "Find clothes" ],
+     "responses": ["Navigating to Clothing section"],
+     "context": ["search_clothing"]
     },
-    {"tag": "search_blood_pressure_by_patient_id",
+    {"tag": "electronics",
+     "patterns": ["Show available electronics", "List of electronics", "electronic items", "Shop electronics"],
+     "responses": ["Loading electronics"],
+     "context": [""]
+    },
+    {"tag": "product_search",
+     "patterns": ["Find an item", "Find product", "List of popular items", "Search product", "Search item" ],
+     "responses": ["Please provide product or item name"],
+     "context": ["search_product_by_name"]
+    },
+    {"tag": "search_mobile_by_name",
      "patterns": [],
-     "responses": ["Loading Blood pressure result for Patient"],
-     "context": [""]
-    },
-    {"tag": "pharmacy_search",
-     "patterns": ["Find me a pharmacy", "Find pharmacy", "List of pharmacies nearby", "Locate pharmacy", "Search pharmacy" ],
-     "responses": ["Please provide pharmacy name"],
-     "context": ["search_pharmacy_by_name"]
-    },
-    {"tag": "search_pharmacy_by_name",
-     "patterns": [],
-     "responses": ["Loading pharmacy details"],
-     "context": [""]
-    },
-    {"tag": "hospital_search",
-     "patterns": ["Lookup for hospital", "Searching for hospital to transfer patient", "I want to search hospital data", "Hospital lookup for patient", "Looking up hospital details" ],
-     "responses": ["Please provide hospital name or location"],
-     "context": ["search_hospital_by_params"]
-    },
-    {"tag": "search_hospital_by_params",
-     "patterns": [],
-     "responses": ["Please provide hospital type"],
-     "context": ["search_hospital_by_type"]
-    },
-    {"tag": "search_hospital_by_type",
-     "patterns": [],
-     "responses": ["Loading hospital details"],
+     "responses": ["Loading mobiles"],
      "context": [""]
     }
 ]
